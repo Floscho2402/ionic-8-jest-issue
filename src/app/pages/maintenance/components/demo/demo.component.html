@@ -1,0 +1,61 @@
+<div aria-live="polite" class="modal modal-padding" role="dialog" [formGroup]="formGroup">
+  <h4>{{ 'TITLE' | translate }}</h4>
+  <ion-input
+    class="data-input"
+    type="datetime-local"
+    [clearOnEdit]="false"
+    [errorText]="(errors$ | async).start | translate"
+    [fill]="'outline'"
+    [formControlName]="'start'"
+    [inputmode]="'numeric'"
+    [label]="'FROM' | translate"
+    [labelPlacement]="'start'" />
+  <ion-input
+    class="data-input"
+    type="datetime-local"
+    [clearOnEdit]="false"
+    [errorText]="(errors$ | async).end | translate"
+    [fill]="'outline'"
+    [formControlName]="'end'"
+    [inputmode]="'numeric'"
+    [label]="'TO' | translate"
+    [labelPlacement]="'start'" />
+  <ion-textarea
+    class="data-input"
+    [clearOnEdit]="false"
+    [errorText]="(errors$ | async).firstMessage | translate"
+    [fill]="'outline'"
+    [formControlName]="'firstMessage'"
+    [inputmode]="'text'"
+    [label]="'FIRST_MESSAGE' | translate"
+    [labelPlacement]="'start'"
+    [maxlength]="200" />
+  <ion-textarea
+    class="data-input"
+    [clearOnEdit]="false"
+    [errorText]="(errors$ | async).secondMessage | translate"
+    [fill]="'outline'"
+    [formControlName]="'secondMessage'"
+    [inputmode]="'text'"
+    [label]="'SECOND_MESSAGE' | translate"
+    [labelPlacement]="'start'"
+    [maxlength]="200" />
+  <ion-textarea
+    class="data-input"
+    [clearOnEdit]="false"
+    [fill]="'outline'"
+    [formControlName]="'thirdMessage'"
+    [inputmode]="'text'"
+    [label]="'THIRD_MESSAGE' | translate"
+    [labelPlacement]="'start'"
+    [maxlength]="200" />
+  <div class="button-container">
+    <ion-button class="secondary" color="primary" id="id1" (click)="decline()">
+      {{ 'CANCEL' | translate }}
+    </ion-button>
+    <ion-button class="primary" color="primary" id="id2" (click)="confirm()">
+      {{ 'ADD' | translate }}
+    </ion-button>
+    <ng-content></ng-content>
+  </div>
+</div>
